@@ -18,7 +18,10 @@ public class PlayerControler : MonoBehaviour
     {
         // move screen on x and y axis with mouse
         transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X"));
-        verticalLookRotation += Input.GetAxisRaw("Mouse Y");
+        verticalLookRotation -= Input.GetAxisRaw("Mouse Y");
+        
+        // Stop camera from doing full 360
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
         cameraHolder.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
     }
 }
