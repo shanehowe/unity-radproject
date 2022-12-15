@@ -7,6 +7,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] Transform cameraHolder;
     float verticalLookRotation;
 
+    [SerializeField] float mouseSensitivity = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,8 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         // move screen on x and y axis with mouse
-        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X"));
-        verticalLookRotation -= Input.GetAxisRaw("Mouse Y");
+        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
+        verticalLookRotation -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         
         // Stop camera from doing full 360
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
