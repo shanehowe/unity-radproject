@@ -24,9 +24,13 @@ public class TargetShooter : MonoBehaviour
                 // Make sure we hit the target
                 if (target != null)
                 {
-             
+                    ScoreScript.scoreValue += 1;
                     target.Hit();
                 }
+            }
+            else
+            {
+                MissScript.scoreValue += 1;
             }
         }
     }
