@@ -24,6 +24,7 @@ public class TargetShooter : MonoBehaviour
                 // Make sure we hit the target
                 if (target != null)
                 {
+             
                     target.Hit();
                 }
             }

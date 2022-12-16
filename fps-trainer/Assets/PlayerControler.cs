@@ -12,7 +12,9 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Hide mouse when game is being played
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
